@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavandê Ateliê</title>
+  <style>
+    body {
+      background: #faf7fb;
+      font-family: 'Segoe UI', sans-serif;
+      color: #5c4a60;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #d8c7e8;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5em;
+      color: #4a3b53;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .produto {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    .produto img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .info {
+      flex: 1;
+    }
+    .nome {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .descricao {
+      margin-bottom: 10px;
+    }
+    .preco {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #744e87;
+      margin-bottom: 10px;
+    }
+    .acoes button {
+      background: #b39ddb;
+      border: none;
+      padding: 10px 15px;
+      margin-right: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #8e7a9e;
+    }
+  </style>
+</head>
+<body>
+  <header>Lavandê Ateliê</header>
+  <div class="container">
+
+    <div class="produto">
+      <img src="https://via.placeholder.com/150/decade/fff?text=Capinha" alt="Capinha Lavanda">
+      <div class="info">
+        <div class="nome">Capinha Lavanda</div>
+        <div class="descricao">Capinha acrílica com resina epóxi, laços 3D e acabamento artesanal delicado.</div>
+        <div class="preco">R$ 24,90</div>
+        <div class="acoes">
+          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
+          <button disabled>Comprar (Pix/Cartão)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="https://via.placeholder.com/150/ece4f2/444?text=Marca-p%C3%A1gina" alt="Marca-página Degradê">
+      <div class="info">
+        <div class="nome">Marca-página Degradê</div>
+        <div class="descricao">Resina branca e transparente com folha de ouro e tassel de seda.</div>
+        <div class="preco">R$ 19,90</div>
+        <div class="acoes">
+          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
+          <button disabled>Comprar (Pix/Cartão)</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="https://via.placeholder.com/150/f4e1ff/333?text=Presilha" alt="Presilha Elegance">
+      <div class="info">
+        <div class="nome">Presilha Elegance</div>
+        <div class="descricao">Presilha com resina degradê e folha de ouro em acabamento translúcido.</div>
+        <div class="preco">R$ 15,90</div>
+        <div class="acoes">
+          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
+          <button disabled>Comprar (Pix/Cartão)</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer>
+    Em breve: links de pagamento automáticos e integração com frete. 💜<br>
+    Contato: @lavande.atelie • (11) 96438-2300
+  </footer>
+</body>
+</html>
