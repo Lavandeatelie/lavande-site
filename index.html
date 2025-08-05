@@ -1,127 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lavandê Ateliê</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #faf7fb;
-      font-family: 'Segoe UI', sans-serif;
-      color: #5c4a60;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f5fc;
+      color: #444;
       margin: 0;
       padding: 0;
     }
     header {
-      background: #d8c7e8;
-      padding: 20px;
+      background-color: #e6dbf2;
+      padding: 2rem;
       text-align: center;
-      font-family: 'Brush Script MT', cursive;
-      font-size: 2.5em;
-      color: #4a3b53;
+      font-family: 'Rochester', cursive;
+      font-size: 3rem;
+      color: #7b5ea7;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .produto {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      gap: 20px;
-    }
-    .produto img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+    .product {
+      border: 1px solid #ddd;
       border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .info {
-      flex: 1;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-    .nome {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-bottom: 5px;
+    .cart {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    .descricao {
-      margin-bottom: 10px;
+    .freight {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .preco {
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #744e87;
-      margin-bottom: 10px;
-    }
-    .acoes button {
-      background: #b39ddb;
+    button {
+      background-color: #c9a0dc;
+      color: #fff;
       border: none;
-      padding: 10px 15px;
-      margin-right: 10px;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       cursor: pointer;
-      color: white;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      color: #8e7a9e;
     }
   </style>
 </head>
 <body>
   <header>Lavandê Ateliê</header>
-  <div class="container">
-
-    <div class="produto">
-      <img src="https://via.placeholder.com/150/decade/fff?text=Capinha" alt="Capinha Lavanda">
-      <div class="info">
-        <div class="nome">Capinha Lavanda</div>
-        <div class="descricao">Capinha acrílica com resina epóxi, laços 3D e acabamento artesanal delicado.</div>
-        <div class="preco">R$ 24,90</div>
-        <div class="acoes">
-          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
-          <button disabled>Comprar (Pix/Cartão)</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="produto">
-      <img src="https://via.placeholder.com/150/ece4f2/444?text=Marca-p%C3%A1gina" alt="Marca-página Degradê">
-      <div class="info">
-        <div class="nome">Marca-página Degradê</div>
-        <div class="descricao">Resina branca e transparente com folha de ouro e tassel de seda.</div>
-        <div class="preco">R$ 19,90</div>
-        <div class="acoes">
-          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
-          <button disabled>Comprar (Pix/Cartão)</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="produto">
-      <img src="https://via.placeholder.com/150/f4e1ff/333?text=Presilha" alt="Presilha Elegance">
-      <div class="info">
-        <div class="nome">Presilha Elegance</div>
-        <div class="descricao">Presilha com resina degradê e folha de ouro em acabamento translúcido.</div>
-        <div class="preco">R$ 15,90</div>
-        <div class="acoes">
-          <button onclick="window.open('https://www.melhorenvio.com.br/calculadora', '_blank')">Calcular Frete</button>
-          <button disabled>Comprar (Pix/Cartão)</button>
-        </div>
-      </div>
-    </div>
-
+  <div class="cart">
+    <strong>Carrinho:</strong> <span id="cart-count">0</span> itens<br />
+    Total: R$ <span id="cart-total">0.00</span><br />
+    <button onclick="checkout()">Finalizar compra</button>
   </div>
-  <footer>
-    Em breve: links de pagamento automáticos e integração com frete. 💜<br>
-    Contato: @lavande.atelie • (11) 96438-2300
-  </footer>
+
+  <div class="products" id="product-list">
+    <!-- Produtos serão carregados aqui -->
+  </div>
+
+  <div class="freight">
+    <h3>Calcular frete</h3>
+    <input type="text" id="cep" placeholder="Digite seu CEP" /><br /><br />
+    <button onclick="calcularFrete()">Calcular</button>
+    <p id="frete-resultado"></p>
+  </div>
+
+  <script>
+    const produtos = [
+      { nome: "Capinha Decorada", preco: 29.90 },
+      { nome: "Marca Página em Resina", preco: 19.90 },
+      { nome: "Presilha com Ouro e Flores", preco: 14.90 },
+      { nome: "Pente Decorativo", preco: 17.90 },
+    ];
+
+    let carrinho = [];
+
+    function renderProdutos() {
+      const container = document.getElementById("product-list");
+      produtos.forEach((p, i) => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.innerHTML = `
+          <h3>${p.nome}</h3>
+          <p>R$ ${p.preco.toFixed(2)}</p>
+          <button onclick="adicionarCarrinho(${i})">Adicionar ao carrinho</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function adicionarCarrinho(index) {
+      carrinho.push(produtos[index]);
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      document.getElementById("cart-count").textContent = carrinho.length;
+      const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+      document.getElementById("cart-total").textContent = total.toFixed(2);
+    }
+
+    function checkout() {
+      alert("Link de pagamento e detalhes de envio serão exibidos aqui.");
+    }
+
+    function calcularFrete() {
+      const cep = document.getElementById("cep").value;
+      if (cep.length !== 8) {
+        alert("Digite um CEP válido.");
+        return;
+      }
+      document.getElementById("frete-resultado").textContent = "Consultando...";
+      // Aqui entraremos com a API do Melhor Envio futuramente
+      setTimeout(() => {
+        document.getElementById("frete-resultado").textContent = "Frete: R$ 12,90 (simulado)";
+      }, 1000);
+    }
+
+    renderProdutos();
+  </script>
 </body>
 </html>
